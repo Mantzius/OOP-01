@@ -14,16 +14,16 @@ namespace Application
             Person Mor = new Person("Mor", "MorEfternavn", -32);
             Person Far = new Person("Far", "FarEfternavn", 22);
             Person Me = new Person("Mig", "MitEfternavn", 0);
-            Mor.SetFar(Morfar); Mor.SetMor(Mormor);
-            Far.SetFar(Farfar); Far.SetMor(Farmor);
-            Me.SetFar(Far); Me.SetMor(Mor);
+            Mor.SetFather(Morfar); Mor.SetMother(Mormor);
+            Far.SetFather(Farfar); Far.SetMother(Farmor);
+            Me.SetFather(Far); Me.SetMother(Mor);
             Me.PrintPerson();
 
             HelloWorld();
             float F = 33;
             float C = FtoC(F);
             Console.WriteLine(C);
-            MicroToTime((int)Math.Pow(4200, 9));
+            MicroToTime( (int) Math.Pow(4200, 9));
 
             FileStuffs FileStuff = new FileStuffs();
             FileStuff.ListDirectory("/home/nitrous/datalogi");

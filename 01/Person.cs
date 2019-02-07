@@ -3,29 +3,29 @@ namespace Application
 {
     public class Person
     {
-        private readonly string Fornavn;
-        private readonly string Efternavn;
-        private readonly int Alder;
-        private Person Far;
-        private Person Mor;
+        private readonly string FirstName;
+        private readonly string LastName;
+        private readonly int Age;
+        private Person Father;
+        private Person Mother;
 
         public Person(string FirstName, string LastName, int Age, Person Father = null, Person Mother = null)
         {
-            Fornavn = FirstName;
-            Efternavn = LastName;
-            Alder = Age;
-            Far = Father;
-            Mor = Mother;
+            this.FirstName = FirstName;
+            this.LastName = LastName;
+            this.Age = Age;
+            this.Father = Father;
+            this.Mother = Mother;
         }
 
-        public void SetFar(Person Far)
+        public void SetFather(Person Father)
         {
-            this.Far = Far ?? throw new ArgumentNullException();
+            this.Father = Father ?? throw new ArgumentNullException();
         }
 
-        public void SetMor(Person Mor)
+        public void SetMother(Person Mother)
         {
-            this.Mor = Mor ?? throw new ArgumentNullException();
+            this.Mother = Mother ?? throw new ArgumentNullException();
         }
 
         public void PrintPerson(int RecursionLevel=0)
@@ -36,14 +36,14 @@ namespace Application
                 Spaces = Spaces + " ";
             }
 
-            Console.WriteLine(String.Format("{0} Fornavn: {1} Efternavn: {2} Alder: {3}", Spaces, Fornavn, Efternavn, Alder));
-            if (Far != null)
+            Console.WriteLine(String.Format("{0} Fornavn: {1} Efternavn: {2} Alder: {3}", Spaces, FirstName, LastName, Age));
+            if (Father != null)
             {
-                Far.PrintPerson(RecursionLevel+1);
+                Father.PrintPerson(RecursionLevel+1);
             }
-            if (Mor != null)
+            if (Mother != null)
             {
-                Mor.PrintPerson(RecursionLevel+1);
+                Mother.PrintPerson(RecursionLevel+1);
             }
         }
 
