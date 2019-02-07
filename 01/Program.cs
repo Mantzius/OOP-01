@@ -6,9 +6,16 @@ namespace Application
     {
         public static void Main(string[] args)
         {
-            Person Mor = new Person("asdasd", "", -32);
-            Person Far = new Person("asdads", "asdsd", 22);
-            Person Me = new Person("asdafafss", "asdadsadd", 0);
+            Person Mormor = new Person("Mormor", "MormorEfternavn", 99);
+            Person Morfar = new Person("Morfar", "MorfarEfternavn", 98);
+            Person Farmor = new Person("Farmor", "FarmorEfternavn", 97);
+            Person Farfar = new Person("Farfar", "FarfarEfternavn", 96);
+
+            Person Mor = new Person("Mor", "MorEfternavn", -32);
+            Person Far = new Person("Far", "FarEfternavn", 22);
+            Person Me = new Person("Mig", "MitEfternavn", 0);
+            Mor.SetFar(Morfar); Mor.SetMor(Mormor);
+            Far.SetFar(Farfar); Far.SetMor(Farmor);
             Me.SetFar(Far); Me.SetMor(Mor);
             Me.PrintPerson();
 
@@ -16,7 +23,7 @@ namespace Application
             float F = 33;
             float C = FtoC(F);
             Console.WriteLine(C);
-            MicroToTime(1000 * 4200);
+            MicroToTime((int)Math.Pow(4200, 9));
 
             FileStuffs FileStuff = new FileStuffs();
             FileStuff.ListDirectory("/home/nitrous/datalogi");
@@ -33,6 +40,7 @@ namespace Application
             X = X.Subtraction(Z);
             X.Print();
 
+            return;
         }
 
         public static void HelloWorld()
@@ -45,16 +53,17 @@ namespace Application
             return (Fahrenheit - 32) * 5 / 9;
         }
 
-        public static void MicroToTime(int Nano)
+        public static void MicroToTime(int Micro)
         {
-            int Seconds = Nano / 1000;
+            int Seconds = Micro/ 1000;
             int Minutes = Seconds / 60;
             Seconds = Seconds % 60;
             int Hours = Minutes / 60;
             Minutes = Minutes % 60;
             int Days = Hours / 24;
             Hours = Hours % 24;
-            Console.WriteLine("Days: " + Days + " Hours: " + Hours + " Minutes: " + Minutes + " Seconds: " + Seconds);
+            Console.WriteLine(String.Format("Days: {0} Hours: {1} Minutes: {2} Seconds {3}",
+                                            Days, Hours, Minutes, Seconds));
         }
     }
 }

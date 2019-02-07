@@ -1,4 +1,5 @@
 ﻿using System;
+
 namespace Application
 {
     public class FileStuffs
@@ -28,13 +29,14 @@ namespace Application
             Console.WriteLine("Directories:");
             foreach (System.IO.DirectoryInfo Dir in DirInfo.GetDirectories())
             {
-                Console.WriteLine(Dir + " Files: " + CountFiles(Dir) + " Directories: " + CountDirectory(Dir));
+                Console.WriteLine(String.Format("{0} Files: {1} Directories: {2}",
+                Dir, CountFiles(Dir), CountDirectory(Dir)));
             }
 
             Console.WriteLine("\nFiles:");
             foreach (System.IO.FileInfo File in DirInfo.EnumerateFiles())
             {
-                Console.WriteLine(File.FullName + " " + File.Length);
+                Console.WriteLine(String.Format("{0} Length: {1}", File.FullName, File.Length));
             }
 
         }

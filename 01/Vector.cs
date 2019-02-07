@@ -24,7 +24,7 @@ namespace Application
             this.Direction -= SubVector.Direction;
         }
 
-        public void Multiply(int Scalar)
+        public void Scale(int Scalar)
         {
             Magnitude *= Scalar;
         }
@@ -41,7 +41,7 @@ namespace Application
                               this.Direction - SubVector.Direction);
         }
 
-        public Vector Multiplication(int Scalar)
+        public Vector Scaled(int Scalar)
         {
             return new Vector(this.Magnitude * Scalar, this.Direction);
 
@@ -49,7 +49,7 @@ namespace Application
 
         public void Print()
         {
-            Console.WriteLine("Magnitude: " + this.Magnitude + " Direction: " + this.Direction);
+            Console.WriteLine(String.Format("Magnitude: {0} Direction: {1}", this.Magnitude, this.Direction));
         }
     }
 }

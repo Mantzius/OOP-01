@@ -28,16 +28,22 @@ namespace Application
             this.Mor = Mor ?? throw new ArgumentNullException();
         }
 
-        public void PrintPerson()
+        public void PrintPerson(int RecursionLevel=0)
         {
-            Console.WriteLine("Fornavn: " + Fornavn + " Efternavn: " + Efternavn + " Alder: " + Alder);
+            string Spaces = "";
+            for (int i = 0; i < RecursionLevel * 4; i++)
+            {
+                Spaces = Spaces + " ";
+            }
+
+            Console.WriteLine(String.Format("{0} Fornavn: {1} Efternavn: {2} Alder: {3}", Spaces, Fornavn, Efternavn, Alder));
             if (Far != null)
             {
-                Far.PrintPerson();
+                Far.PrintPerson(RecursionLevel+1);
             }
             if (Mor != null)
             {
-                Mor.PrintPerson();
+                Mor.PrintPerson(RecursionLevel+1);
             }
         }
 
